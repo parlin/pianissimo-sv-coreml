@@ -1,0 +1,35 @@
+diff --git a/models/stt/parakeet-tdt-v3-0.6b/coreml/convert-parakeet.py b/models/stt/parakeet-tdt-v3-0.6b/coreml/convert-parakeet.py
+index 2b81658..227e0e0 100644
+--- a/models/stt/parakeet-tdt-v3-0.6b/coreml/convert-parakeet.py
++++ b/models/stt/parakeet-tdt-v3-0.6b/coreml/convert-parakeet.py
+@@ -203,6 +203,12 @@ def convert(
+             "model_id": model_id,
+         }
+     asr_model.eval()
++    enc_cfg = asr_model.cfg.encoder
++    typer.echo(f"Encoder attention: {enc_cfg.get('self_attention_model')} context={enc_cfg.get('att_context_size')}")
++    if enc_cfg.get('self_attention_model') == 'rel_pos_local_attn':
++        # 15 s window = ~188 encoder frames < 256-frame local context, so full attention is equivalent.
++        asr_model.change_attention_model('rel_pos', [-1, -1])
++        typer.echo('Switched encoder to full rel_pos attention for export')
+ 
+     sample_rate = int(asr_model.cfg.preprocessor.sample_rate)
+     max_samples = _compute_length(export_settings.max_audio_seconds, sample_rate)
+@@ -223,7 +229,7 @@ def convert(
+     asr_model.decoder._rnnt_export = True
+ 
+     try:
+-        with torch.inference_mode():
++        with torch.no_grad():
+             mel_ref, mel_length_ref = preprocessor(audio_tensor, audio_length)
+             mel_length_ref = mel_length_ref.to(dtype=torch.int32)
+             encoder_ref, encoder_length_ref = encoder(mel_ref, mel_length_ref)
+@@ -255,7 +261,7 @@ def convert(
+             dtype=torch.float32,
+         )
+ 
+-        with torch.inference_mode():
++        with torch.no_grad():
+             decoder_ref, h_ref, c_ref = decoder(targets, target_lengths, zero_state, zero_state)
+             joint_ref = joint(encoder_ref, decoder_ref)
+ 

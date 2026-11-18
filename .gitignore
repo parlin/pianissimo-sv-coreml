@@ -1,0 +1,5 @@
+*.mlmodelc/
+*.aar
+*.zip
+work/
+.DS_Store
