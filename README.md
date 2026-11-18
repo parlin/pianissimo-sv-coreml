@@ -14,7 +14,8 @@ The model files are not in git. They are attached to the [releases](../../releas
 
 Measured on 2026-11-16 against the original NeMo model, on 100 clips from the Swedish
 [FLEURS](https://huggingface.co/datasets/google/fleurs) test set (every 7th clip, 18.9 minutes of read
-speech) and on a 4-minute file made of 20 clips joined together.
+speech) and on a 4-minute file made of 20 clips joined together. Every transcript, the clip lists
+and the device logs are in [`testresults/`](testresults/).
 
 ### Accuracy (word error rate, lower is better)
 

@@ -60,3 +60,5 @@ python3 wer.py run_nemo.jsonl run_coreml.jsonl
 ```
 
 Expected: about 6.0 % WER for NeMo and about 6.2 % for Core ML, with 85 of 100 transcripts identical.
+The clip lists (`subset100.tsv`, `long.tsv`) and our own runs to compare with are in
+[`../testresults/`](../testresults/).

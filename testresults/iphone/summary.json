@@ -1,0 +1,24 @@
+{
+  "device" : "iPhone16,1",
+  "finished" : "2026-11-16T21:20:35Z",
+  "fleurs100" : {
+    "audioSeconds" : 1133.76,
+    "files" : 100,
+    "peakMB" : 131.61043548583984,
+    "procSeconds" : 10.818094730377197,
+    "realtimeFactor" : 104.80218820938988
+  },
+  "load1Seconds" : 16.662452936172485,
+  "load2Seconds" : 0.22581791877746582,
+  "long245s" : {
+    "audioSeconds" : 244.80000000000001,
+    "files" : 1,
+    "peakMB" : 119.18856048583984,
+    "procSeconds" : 1.1852519512176514,
+    "realtimeFactor" : 206.53836490081986
+  },
+  "memAfterLoadMB" : 69.047889709472656,
+  "os" : "Version 26.6.2 (Build 23G90)",
+  "started" : "2026-11-16T21:20:06Z",
+  "thermalEnd" : 0
+}

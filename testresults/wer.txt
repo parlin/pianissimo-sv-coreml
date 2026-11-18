@@ -1,0 +1,9 @@
+100 files in common
+mac/run_nemo.jsonl: WER vs reference text 6.02%
+mac/run_coreml.jsonl: WER vs reference text 6.22% | diff vs mac/run_nemo.jsonl: 1.14% (85/100 identical)
+iphone/run_coreml.jsonl: WER vs reference text 6.22% | diff vs mac/run_nemo.jsonl: 1.09% (85/100 identical)
+
+1 files in common
+mac/run_long_nemo.jsonl: WER vs reference text 4.91%
+mac/run_long_coreml.jsonl: WER vs reference text 6.47% | diff vs mac/run_long_nemo.jsonl: 4.08% (0/1 identical)
+iphone/run_long_coreml.jsonl: WER vs reference text 6.47% | diff vs mac/run_long_nemo.jsonl: 4.08% (0/1 identical)
